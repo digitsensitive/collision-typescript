@@ -1,0 +1,27 @@
+{
+  "name": "collision-typescript",
+  "version": "1.0.0",
+  "description": "A collision detection library for 2D games in TypeScript",
+  "keywords": [
+    "Collision Detection",
+    "2D games",
+    "TypeScript"
+  ],
+  "license": "MIT",
+  "author": "digitsensitive <digit.sensitivee@gmail.com>",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "3.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitsensitive/collision-typescript.git"
+  },
+  "homepage": "https://github.com/digitsensitive/collision-typescript#readme"
+}
