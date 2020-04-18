@@ -1,6 +1,6 @@
 {
   "name": "collision-typescript",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A collision detection library for 2D games in TypeScript",
   "keywords": [
     "Collision Detection",
@@ -12,8 +12,7 @@
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
   "scripts": {
-    "build": "tsc",
-    "publish": "git push --tags && npm publish"
+    "build": "tsc"
   },
   "dependencies": {},
   "devDependencies": {
