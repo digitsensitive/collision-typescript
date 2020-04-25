@@ -1,6 +1,7 @@
 import { Point } from './shapes/point';
 import { Circle } from './shapes/circle';
 import { Rectangle } from './shapes/rectangle';
+import { distanceBetween } from './helpers/distance-between';
 
 /**
  * Pixel-perfect Point-Point Collision without buffer zone.
@@ -25,9 +26,7 @@ export function pointPointWithBufferCollision(
   point2: Point,
   buffer: number
 ): boolean {
-  const distX = point1.x - point2.x;
-  const distY = point1.y - point2.y;
-  const distance = Math.sqrt(distX * distX + distY * distY);
+  const distance = distanceBetween(point1.x, point1.y, point2.x, point2.y);
 
   if (distance <= buffer * 2) {
     return true;
@@ -42,9 +41,7 @@ export function pointPointWithBufferCollision(
  * @param circle
  */
 export function pointCircleCollision(point: Point, circle: Circle): boolean {
-  const distX = point.x - circle.x;
-  const distY = point.y - circle.y;
-  const distance = Math.sqrt(distX * distX + distY * distY);
+  const distance = distanceBetween(point.x, point.y, circle.x, circle.y);
 
   if (distance <= circle.radius) {
     return true;
@@ -62,9 +59,7 @@ export function circleCircleCollision(
   circle1: Circle,
   circle2: Circle
 ): boolean {
-  const distX = circle1.x - circle2.x;
-  const distY = circle1.y - circle2.y;
-  const distance = Math.sqrt(distX * distX + distY * distY);
+  const distance = distanceBetween(circle1.x, circle1.y, circle2.x, circle2.y);
 
   if (distance <= circle1.radius + circle2.radius) {
     return true;
