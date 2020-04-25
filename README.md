@@ -8,10 +8,6 @@ collision-typescript
 Collision-TypeScript is a 2D collision detection library for your HTML5 games
 or other browser-based projects.
 
-This library was influenced and inspired by:
-
-- [to be filled]()
-
 ## Buy me a coffee
 
 Whether you use this project, have learned something from it, or just like it,
