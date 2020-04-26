@@ -5,7 +5,7 @@
  * @param x2
  * @param y2
  */
-export function distanceBetween(
+export function distanceBetweenTwoPoints(
   x1: number,
   y1: number,
   x2: number,

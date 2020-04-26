@@ -20,7 +20,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Point-Circle collision
 - Add Circle-Circle collision
 - Add Point-Rectangle collision
-- Add following shapes: Circle, Point, Rectangle
+- Add Rectangle-Rectangle collision
+- Add Circle-Rectangle collision
+- Add Point-Line collision
+- Add following shapes: Circle, Point, Rectangle, Line
 - Add src folder with main.ts
 - Add .gitignore, .npmignore, .prettierrc, CHANGELOG.md, CODE_OF_CONDUCT.md
 - Add LICENCE, package.json, README.md and tsconfig.json
