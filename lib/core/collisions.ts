@@ -3,6 +3,7 @@ import { Circle } from './shapes/circle';
 import { Rectangle } from './shapes/rectangle';
 import { distanceBetweenTwoPoints } from './helpers/distance-between';
 import { Line } from './shapes/line';
+import { ILineLineCollisionObject } from './interfaces/interfaces';
 
 /**
  * Pixel-perfect Point-Point Collision without buffer zone.
@@ -257,7 +258,10 @@ export function circleLineCollision(circle: Circle, line: Line): boolean {
  * @param line1
  * @param line2
  */
-export function lineLineCollision(line1: Line, line2: Line): boolean {
+export function lineLineCollision(
+  line1: Line,
+  line2: Line
+): ILineLineCollisionObject {
   const uA =
     ((line2.x2 - line2.x1) * (line1.y1 - line2.y1) -
       (line2.y2 - line2.y1) * (line1.x1 - line2.x1)) /
@@ -270,7 +274,9 @@ export function lineLineCollision(line1: Line, line2: Line): boolean {
       (line2.x2 - line2.x1) * (line1.y2 - line1.y1));
 
   if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
-    return true;
+    const x = line1.x1 + uA * (line1.x2 - line1.x1);
+    const y = line1.y1 + uA * (line1.y2 - line1.y1);
+    return { isColliding: true, pointOfIntersection: new Point(x, y) };
   }
-  return false;
+  return { isColliding: false };
 }
