@@ -23,6 +23,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add Rectangle-Rectangle collision
 - Add Circle-Rectangle collision
 - Add Point-Line collision
+- Add Circle-Line collision
+- Add Line-Line collision
 - Add following shapes: Circle, Point, Rectangle, Line
 - Add src folder with main.ts
 - Add .gitignore, .npmignore, .prettierrc, CHANGELOG.md, CODE_OF_CONDUCT.md

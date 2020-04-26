@@ -194,3 +194,83 @@ export function pointLineCollision(
 
   return false;
 }
+
+/**
+ * Circle-Line Collision.
+ * @param circle
+ * @param line
+ */
+export function circleLineCollision(circle: Circle, line: Line): boolean {
+  if (
+    pointCircleCollision(
+      new Point(line.x1, line.y1),
+      new Circle(circle.x, circle.y, circle.radius)
+    ) ||
+    pointCircleCollision(
+      new Point(line.x2, line.y2),
+      new Circle(circle.x, circle.y, circle.radius)
+    )
+  ) {
+    return true;
+  }
+
+  const lineLength = distanceBetweenTwoPoints(
+    line.x1,
+    line.y1,
+    line.x2,
+    line.y2
+  );
+
+  // Calculate dot product of the line and circle
+  const dot =
+    ((circle.x - line.x1) * (line.x2 - line.x1) +
+      (circle.y - line.y1) * (line.y2 - line.y1)) /
+    Math.pow(lineLength, 2);
+
+  const closestX = line.x1 + dot * (line.x2 - line.x1);
+  const closestY = line.y1 + dot * (line.y2 - line.y1);
+
+  if (
+    !pointLineCollision(
+      new Point(closestX, closestY),
+      new Line(line.x1, line.y1, line.x2, line.y2)
+    )
+  ) {
+    return false;
+  }
+
+  const lengthFromLineToCircle = distanceBetweenTwoPoints(
+    closestX,
+    closestY,
+    circle.x,
+    circle.y
+  );
+
+  if (lengthFromLineToCircle <= circle.radius) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Line-Line Collision.
+ * @param line1
+ * @param line2
+ */
+export function lineLineCollision(line1: Line, line2: Line): boolean {
+  const uA =
+    ((line2.x2 - line2.x1) * (line1.y1 - line2.y1) -
+      (line2.y2 - line2.y1) * (line1.x1 - line2.x1)) /
+    ((line2.y2 - line2.y1) * (line1.x2 - line1.x1) -
+      (line2.x2 - line2.x1) * (line1.y2 - line1.y1));
+  const uB =
+    ((line1.x2 - line1.x1) * (line1.y1 - line2.y1) -
+      (line1.y2 - line1.y1) * (line1.x1 - line2.x1)) /
+    ((line2.y2 - line2.y1) * (line1.x2 - line1.x1) -
+      (line2.x2 - line2.x1) * (line1.y2 - line1.y1));
+
+  if (uA >= 0 && uA <= 1 && uB >= 0 && uB <= 1) {
+    return true;
+  }
+  return false;
+}
